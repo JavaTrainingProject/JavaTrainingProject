@@ -1,5 +1,6 @@
 package com.example.E_commerce.Entity;
 
+import com.example.E_commerce.Enum.Role;
 import jakarta.persistence.*;
 
 @Entity
