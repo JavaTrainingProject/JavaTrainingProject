@@ -12,8 +12,9 @@ public class UserEntity {
     private long id;
     private String name;
     private String email;
+
+    private String gender;
     private String password;
-    @Enumerated(EnumType.STRING)
     private Role role;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -24,6 +25,13 @@ public class UserEntity {
 
     public void setId(long id) {
         this.id = id;
+    }
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public LocalDateTime getCreatedAt() {
