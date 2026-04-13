@@ -7,12 +7,16 @@ public class ProductRequestDto {
     private double price;
     private int quantity;
 
-    public String getImageUrl() {
-        return imageUrl;
+    private String imageFile;
+    private Long categoryId;
+    private Long subCategoryId;
+
+    public String getImageFile() {
+        return imageFile;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageFile(String imageFile) {
+        this.imageFile = imageFile;
     }
 
     public String getName() {
@@ -62,9 +66,4 @@ public class ProductRequestDto {
     public void setSubCategoryId(Long subCategoryId) {
         this.subCategoryId = subCategoryId;
     }
-
-    private String imageUrl;
-
-    private Long categoryId;
-    private Long subCategoryId;
 }
