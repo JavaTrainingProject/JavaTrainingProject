@@ -3,16 +3,45 @@ package com.example.E_commerce.Entity;
 import com.example.E_commerce.Enum.Role;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String name;
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
 
     public String getName() {
         return name;
@@ -20,14 +49,6 @@ public class UserEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getEmail() {
