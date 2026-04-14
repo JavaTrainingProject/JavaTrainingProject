@@ -20,6 +20,11 @@ public class RegisterController {
     public UserResponseDto registerUser(@Valid @RequestBody UserRequestDTO dto){
         return userService.registerUser(dto);
     }
+
+    @PostMapping("/register")
+    public UserResponseDto registerAdmin(@Valid @RequestBody UserRequestDTO dto){
+        return userService.registerAdmin(dto);
+    }
 }
 
 
