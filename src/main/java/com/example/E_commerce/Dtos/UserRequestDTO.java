@@ -1,6 +1,8 @@
 package com.example.E_commerce.Dtos;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -16,6 +18,9 @@ public class UserRequestDTO {
     @Email(message = "Invalid email format")
     @NotBlank(message = "Email is required")
     private String email;
+
+    @NotBlank(message="Password is required")
+    @Size(min=6, message="Password must be atleast 6 characters")
     private String password;
     @NotBlank(message = "Gender is required")
     private String gender;
@@ -28,20 +33,13 @@ public class UserRequestDTO {
         this.gender = gender;
     }
 
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
