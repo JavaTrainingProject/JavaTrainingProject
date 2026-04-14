@@ -62,6 +62,7 @@ private UserResponseDto mapToResponse(UserEntity user){
         response.setName(user.getName());
         response.setEmail(user.getEmail());
         response.setRole(user.getRole());
+        response.setCreatedAt(user.getCreatedAt());
         return response;
 }
 }
