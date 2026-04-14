@@ -1,25 +1,37 @@
 package com.example.E_commerce.Dtos;
 
-import com.example.E_commerce.Enum.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 
 public class UserRequestDTO {
-
-
-    @NotBlank(message="Name should not be empty")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @NotBlank(message = "Name is required")
+    @Size(min = 3, max = 50, message = "Name must be 3-50 characters")
     private String name;
-
-    @NotBlank(message = "Email should not be empty")
-    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)\\.com$", message = "Email is invalid")
+    @Email(message = "Invalid email format")
+    @NotBlank(message = "Email is required")
     private String email;
 
     @NotBlank(message="Password is required")
     @Size(min=6, message="Password must be atleast 6 characters")
     private String password;
+    @NotBlank(message = "Gender is required")
+    private String gender;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
 
     public String getEmail() {

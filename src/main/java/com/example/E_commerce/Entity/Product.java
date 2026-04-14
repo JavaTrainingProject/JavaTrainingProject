@@ -16,7 +16,16 @@ public class Product {
     private String description;
     private double price;
     private int quantity;
-    private String imageUrl;
+
+    public String getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(String imageFile) {
+        this.imageFile = imageFile;
+    }
+
+    private String imageFile;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -58,14 +67,6 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
 
     public LocalDateTime getCreatedAt() {

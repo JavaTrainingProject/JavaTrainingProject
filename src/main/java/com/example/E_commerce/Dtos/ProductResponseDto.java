@@ -4,6 +4,12 @@ import java.time.LocalDateTime;
 
 public class ProductResponseDto {
     private Long id;
+    private String imageFile;
+
+    private String categoryName;
+    private String subCategoryName;
+
+    private LocalDateTime createdAt;
 
     public String getName() {
         return name;
@@ -45,14 +51,6 @@ public class ProductResponseDto {
         this.quantity = quantity;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
     public String getCategoryName() {
         return categoryName;
     }
@@ -83,10 +81,11 @@ public class ProductResponseDto {
     private double price;
     private int quantity;
 
-    private String imageUrl;
+    public String getImageFile() {
+        return imageFile;
+    }
 
-    private String categoryName;
-    private String subCategoryName;
-
-    private LocalDateTime createdAt;
+    public void setImageFile(String imageFile) {
+        this.imageFile = imageFile;
+    }
 }
