@@ -26,23 +26,44 @@ public class UserImpl implements UserServiceMain {
             throw new RuntimeException("Email already exists");
         }
 
-        UserEntity user=new UserEntity();
-        user.setName(dto.getName());
-        user.setEmail(dto.getEmail());
-        user.setPassword(passwordEncoder.encode(dto.getPassword()));
-        user.setRole(Role.USER);
-        user.setCreatedAt(LocalDateTime.now());
+        return saveUser(dto,Role.USER);
 
-        UserEntity savedUser=userRepository.save(user);
+}
 
+public UserResponseDto registerAdmin(UserRequestDTO dto){
+
+        if(userRepository.findByRole(Role.ADMIN).isPresent()){
+            throw new RuntimeException("Admin already exists");
+        }
+
+        if(userRepository.findByEmail(dto.getEmail()).isPresent()){
+            throw new RuntimeException("Email already exists");
+        }
+
+        return saveUser(dto,Role.ADMIN);
+
+}
+
+private UserResponseDto saveUser(UserRequestDTO dto,Role role){
+    UserEntity user=new UserEntity();
+    user.setName(dto.getName());
+    user.setEmail(dto.getEmail());
+    user.setPassword(passwordEncoder.encode(dto.getPassword()));
+    user.setRole(role);
+    user.setCreatedAt(LocalDateTime.now());
+
+    UserEntity savedUser=userRepository.save(user);
+    return mapToResponse(savedUser);
+}
+
+private UserResponseDto mapToResponse(UserEntity user){
         UserResponseDto response=new UserResponseDto();
-        response.setId(savedUser.getId());
-        response.setName(savedUser.getName());
-        response.setEmail(savedUser.getEmail());
-        response.setRole(savedUser.getRole());
-
+        response.setId(user.getId());
+        response.setName(user.getName());
+        response.setEmail(user.getEmail());
+        response.setRole(user.getRole());
+        response.setCreatedAt(user.getCreatedAt());
         return response;
-
 }
 }
 

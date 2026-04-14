@@ -9,4 +9,6 @@ public interface UserServiceMain {
 
     UserResponseDto registerUser(UserRequestDTO dto);
 
+    UserResponseDto registerAdmin(UserRequestDTO dto);
+
 }
