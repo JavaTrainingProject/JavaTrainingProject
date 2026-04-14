@@ -1,9 +1,23 @@
 package com.example.E_commerce.Dtos;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class CategoryResponseDto {
     private Long id;
+    private String name;
+    private String description;
+    private LocalDateTime createdAt;
+
+    public List<SubCategoryResponseDto> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(List<SubCategoryResponseDto> subCategories) {
+        this.subCategories = subCategories;
+    }
+
+    private List<SubCategoryResponseDto> subCategories;
 
     public String getName() {
         return name;
@@ -36,9 +50,4 @@ public class CategoryResponseDto {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
-
-    private String name;
-    private String description;
-
-    private LocalDateTime createdAt;
 }

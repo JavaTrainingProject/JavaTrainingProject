@@ -1,7 +1,14 @@
 package com.example.E_commerce.Dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class SubCategoryResponseDto {
     private Long id;
+    @NotBlank(message = "Name is required")
+    @Size(min = 3, max = 50, message = "Name must be 3-50 characters")
+    private String name;
+    private String description;
 
     public String getName() {
         return name;
@@ -11,14 +18,6 @@ public class SubCategoryResponseDto {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -26,25 +25,11 @@ public class SubCategoryResponseDto {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public Long getCategoryId() {
-        return categoryId;
+    public Long getId() {
+        return id;
     }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
+    public void setId(Long id) {
+        this.id = id;
     }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    private String name;
-    private String description;
-    private Long categoryId;
-    private String categoryName;
 }
