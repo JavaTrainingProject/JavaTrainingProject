@@ -1,22 +1,20 @@
 package com.example.E_commerce.Dtos;
 
 import com.example.E_commerce.Enum.Role;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-@Entity
+
 public class UserResponseDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
-private Role role;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
