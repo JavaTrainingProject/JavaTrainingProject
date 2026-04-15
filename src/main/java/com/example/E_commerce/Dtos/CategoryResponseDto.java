@@ -9,16 +9,6 @@ public class CategoryResponseDto {
     private String description;
     private LocalDateTime createdAt;
 
-    public List<SubCategoryResponseDto> getSubCategories() {
-        return subCategories;
-    }
-
-    public void setSubCategories(List<SubCategoryResponseDto> subCategories) {
-        this.subCategories = subCategories;
-    }
-
-    private List<SubCategoryResponseDto> subCategories;
-
     public String getName() {
         return name;
     }
