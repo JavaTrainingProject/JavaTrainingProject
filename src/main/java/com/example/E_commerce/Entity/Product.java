@@ -1,34 +1,83 @@
 package com.example.E_commerce.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String productName;
     private String description;
     private double price;
     private int quantity;
 
-    public String getImageFile() {
-        return imageFile;
-    }
 
-    public void setImageFile(String imageFile) {
-        this.imageFile = imageFile;
-    }
-
-    private String imageFile;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    @ManyToOne
+    @JoinColumn(name = "sub_category_id")
+    private SubCategory subCategory;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<ProductImage> images;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "sub_category_id")
+//    private SubCategory subCategory;
+//
+//    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+//    private List<ProductImage> images;
+
+//    public SubCategory getSubCategory() {
+//        return subCategory;
+//    }
+//
+//    public void setSubCategory(SubCategory subCategory) {
+//        this.subCategory = subCategory;
+//    }
+//
+//
+//    public List<ProductImage> getImages() {
+//        return images;
+//    }
+//
+//    public void setImages(List<ProductImage> images) {
+//        this.images = images;
+//    }
+
+
+    @PrePersist
+    public void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public SubCategory getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(SubCategory subCategory) {
+        this.subCategory = subCategory;
+    }
+
+    public List<ProductImage> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ProductImage> images) {
+        this.images = images;
+    }
     public long getId() {
         return id;
     }
@@ -38,11 +87,11 @@ public class Product {
     }
 
     public String getProductName() {
-        return ProductName;
+        return productName;
     }
 
     public void setProductName(String productName) {
-        ProductName = productName;
+        this.productName = productName;
     }
 
     public String getDescription() {

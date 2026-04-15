@@ -1,11 +1,21 @@
 package com.example.E_commerce.Dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class ProductRequestDto {
+    @NotBlank
     private String name;
     private String description;
 
+    @NotNull
     private double price;
     private int quantity;
+
+    private String imageUrl;
+
+    private Long categoryId;
+    private Long subCategoryId;
 
     public String getImageUrl() {
         return imageUrl;
@@ -47,24 +57,25 @@ public class ProductRequestDto {
         this.quantity = quantity;
     }
 
-    public Long getCategoryId() {
-        return categoryId;
-    }
+    public Long getSubCategoryId() { return subCategoryId; }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
 
-    public Long getSubCategoryId() {
-        return subCategoryId;
-    }
-
-    public void setSubCategoryId(Long subCategoryId) {
-        this.subCategoryId = subCategoryId;
-    }
-
-    private String imageUrl;
-
-    private Long categoryId;
-    private Long subCategoryId;
 }
+
+//    public Long getCategoryId() {
+//        return categoryId;
+//    }
+//
+//    public void setCategoryId(Long categoryId) {
+//        this.categoryId = categoryId;
+//    }
+//
+//    public Long getSubCategoryId() {
+//        return subCategoryId;
+//    }
+//
+//    public void setSubCategoryId(Long subCategoryId) {
+//        this.subCategoryId = subCategoryId;
+//    }
+
+

@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDateTime;
 
-@Entity
 public class UserResponseDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -67,6 +66,4 @@ private LocalDateTime updatedAt;
     public void setEmail(String email) {
         this.email = email;
     }
-
-
 }

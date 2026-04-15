@@ -1,16 +1,19 @@
 package com.example.E_commerce.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 @Entity
 public class SubCategory {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String SubCategoryName;
     private String description;
+    //@ManyToOne
+   // @JoinColumn(name="category_id")
+    //private Category category;
 
     public String getSubCategoryName() {
         return SubCategoryName;

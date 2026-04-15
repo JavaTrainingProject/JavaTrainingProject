@@ -4,6 +4,18 @@ import java.time.LocalDateTime;
 
 public class ProductResponseDto {
     private Long id;
+    private String name;
+    private String description;
+
+    private double price;
+    private int quantity;
+
+    private String imageUrl;
+
+//    private String categoryName;
+//    private String subCategoryName;
+
+    private LocalDateTime createdAt;
 
     public String getName() {
         return name;
@@ -53,21 +65,21 @@ public class ProductResponseDto {
         this.imageUrl = imageUrl;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public String getSubCategoryName() {
-        return subCategoryName;
-    }
-
-    public void setSubCategoryName(String subCategoryName) {
-        this.subCategoryName = subCategoryName;
-    }
+//    public String getCategoryName() {
+//        return categoryName;
+//    }
+//
+//    public void setCategoryName(String categoryName) {
+//        this.categoryName = categoryName;
+//    }
+//
+//    public String getSubCategoryName() {
+//        return subCategoryName;
+//    }
+//
+//    public void setSubCategoryName(String subCategoryName) {
+//        this.subCategoryName = subCategoryName;
+//    }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
@@ -77,16 +89,5 @@ public class ProductResponseDto {
         this.createdAt = createdAt;
     }
 
-    private String name;
-    private String description;
 
-    private double price;
-    private int quantity;
-
-    private String imageUrl;
-
-    private String categoryName;
-    private String subCategoryName;
-
-    private LocalDateTime createdAt;
 }
