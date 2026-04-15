@@ -21,6 +21,7 @@ public class CategoryResponseDto {
         return id;
     }
 
+
     public void setId(Long id) {
         this.id = id;
     }

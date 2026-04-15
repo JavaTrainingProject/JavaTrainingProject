@@ -16,6 +16,7 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryRepository categoryRepository;
 
 
+
     @Override
     public ApiResponse<List<CategoryResponseDto>> getAllCategories() {
         List<Category> categories= categoryRepository.findAll();
@@ -30,6 +31,7 @@ public class CategoryServiceImpl implements CategoryService {
        if (dtoList.isEmpty()){
            return new ApiResponse<>("Success","Not found",dtoList);
        }
+
        return  new ApiResponse<>("Success","successfully",dtoList);
     }
 

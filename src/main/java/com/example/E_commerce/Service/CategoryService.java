@@ -8,6 +8,6 @@ import com.example.E_commerce.ServiceImpl.CategoryServiceImpl;
 import java.util.List;
 
 public interface CategoryService {
-
     ApiResponse<List<CategoryResponseDto>> getAllCategories();
+
 }

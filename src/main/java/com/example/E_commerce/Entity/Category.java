@@ -14,7 +14,8 @@ public class Category {
     private String CategoryDescription;
     private LocalDateTime createdAt;
 
-    public String getCategoryName() {
+    public String getCategoryName()
+    {
         return CategoryName;
     }
 

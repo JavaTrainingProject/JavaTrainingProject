@@ -23,6 +23,7 @@ public class CategoryController {
     public ResponseEntity<ApiResponse<List<CategoryResponseDto>>> getAllCategories(){
         ApiResponse<List<CategoryResponseDto>> response=categoryService.getAllCategories();
         return ResponseEntity.ok(response);
+
     }
 
 

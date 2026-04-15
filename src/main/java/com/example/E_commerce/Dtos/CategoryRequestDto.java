@@ -3,6 +3,7 @@ package com.example.E_commerce.Dtos;
 public class CategoryRequestDto {
     private String name;
     private String description;
+
     public String getName() {
         return name;
     }
