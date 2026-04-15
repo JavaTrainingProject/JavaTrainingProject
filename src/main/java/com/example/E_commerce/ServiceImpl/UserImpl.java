@@ -65,5 +65,23 @@ private UserResponseDto mapToResponse(UserEntity user){
         response.setCreatedAt(user.getCreatedAt());
         return response;
 }
+
+    // GET ALL USERS (ADMIN ONLY)
+    @Override
+    public List<UserResponseDto> getAllUsers(Long userId) {
+
+        UserEntity loggedInUser = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (loggedInUser.getRole() != Role.ADMIN) {
+            throw new RuntimeException("Access denied");
+        }
+
+        List<UserEntity> users = userRepository.findAll();
+
+        return users.stream()
+                .map(this::mapToResponse)
+                .toList();
+    }
 }
 
