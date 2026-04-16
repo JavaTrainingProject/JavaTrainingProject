@@ -1,6 +1,8 @@
 package com.example.E_commerce.Dtos;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -12,7 +14,11 @@ public class UserRequestDTO {
     @Email(message = "Invalid email format")
     @NotBlank(message = "Email is required")
     private String email;
+
+    @NotBlank(message="Password is required")
+    @Size(min=6, message="Password must be atleast 6 characters")
     private String password;
+
 
 
 
