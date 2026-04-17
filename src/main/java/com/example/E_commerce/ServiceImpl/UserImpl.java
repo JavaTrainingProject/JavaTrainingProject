@@ -1,12 +1,14 @@
 package com.example.E_commerce.ServiceImpl;
 
-import com.example.E_commerce.Dtos.UserRequestDTO;
-import com.example.E_commerce.Dtos.UserResponseDto;
+import com.example.E_commerce.Dtos.*;
+import com.example.E_commerce.Entity.RefreshToken;
 import com.example.E_commerce.Entity.UserEntity;
 import com.example.E_commerce.Enum.Role;
 import com.example.E_commerce.Repository.UserRepository;
 import com.example.E_commerce.Service.UserServiceMain;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,15 @@ public class UserImpl implements UserServiceMain {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JWTService jwtService;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private RefreshTokenService refreshTokenService;
 
     public UserResponseDto registerUser(UserRequestDTO dto){
         if(userRepository.findByEmail(dto.getEmail()).isPresent()){
@@ -65,5 +76,45 @@ private UserResponseDto mapToResponse(UserEntity user){
         response.setCreatedAt(user.getCreatedAt());
         return response;
 }
+
+public LoginResponseDTO login(LoginRequestDTO dto){
+
+    authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(
+                    dto.getEmail(),
+                    dto.getPassword()
+            )
+    );
+
+       UserEntity user=userRepository.findByEmail(dto.getEmail())
+                .orElseThrow(() -> new RuntimeException("Invalid Credentials"));
+
+        String token=jwtService.generateToken(user.getEmail(),user.getRole());
+
+        RefreshToken refreshToken=refreshTokenService.createRefreshToken(user.getEmail());
+
+        LoginResponseDTO response=new LoginResponseDTO();
+        response.setToken(token);
+        response.setRefreshToken(refreshToken.getRefreshToken());
+        response.setId(user.getId());
+        response.setRole(user.getRole());
+        return response;
+    }
+
+    public LoginResponseDTO refreshToken(RefreshRequestDTO dto){
+        RefreshToken refreshToken=refreshTokenService.verifyRefreshToken(dto.getRefreshToken());
+
+        UserEntity user=refreshToken.getUser();
+
+        String newAccessToken=jwtService.generateToken(user.getEmail(),user.getRole());
+
+        LoginResponseDTO response=new LoginResponseDTO();
+        response.setToken(newAccessToken);
+        response.setRefreshToken(refreshToken.getRefreshToken());
+        response.setId(user.getId());
+        response.setRole(user.getRole());
+
+        return response;
+    }
 }
 
