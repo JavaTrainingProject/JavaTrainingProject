@@ -11,17 +11,17 @@ import java.time.LocalDateTime;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String CategoryName;
-    private String CategoryDescription;
+    private Long id;
+    private String categoryName;
+    private String categoryDescription;
     private LocalDateTime createdAt;
 
     public String getCategoryName() {
-        return CategoryName;
+        return categoryName;
     }
 
     public void setCategoryName(String categoryName) {
-        CategoryName = categoryName;
+        categoryName = categoryName;
     }
 
     public long getId() {
@@ -33,11 +33,11 @@ public class Category {
     }
 
     public String getCategoryDescription() {
-        return CategoryDescription;
+        return categoryDescription;
     }
 
     public void setCategoryDescription(String categoryDescription) {
-        CategoryDescription = categoryDescription;
+        categoryDescription = categoryDescription;
     }
 
     public LocalDateTime getCreatedAt() {
