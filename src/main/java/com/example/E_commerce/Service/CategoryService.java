@@ -6,5 +6,6 @@ import com.example.E_commerce.Dtos.CategoryResponseDto;
 
 public interface CategoryService {
         CategoryResponseDto createCategory(CategoryRequestDto dto);
+    Long getActiveCategoryCount();
     }
 

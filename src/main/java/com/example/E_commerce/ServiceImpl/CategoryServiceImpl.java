@@ -43,4 +43,9 @@ public class CategoryServiceImpl implements CategoryService {
         dto.setCreatedAt(category.getCreatedAt());
         return dto;
     }
+
+    @Override
+    public Long getActiveCategoryCount() {
+        return categoryRepository.countByActiveTrue();
+    }
 }

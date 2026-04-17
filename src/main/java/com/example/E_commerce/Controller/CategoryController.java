@@ -22,4 +22,8 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<Long> getActiveCategoryCount() {
+        return ResponseEntity.ok(categoryService.getActiveCategoryCount());
+    }
 }
