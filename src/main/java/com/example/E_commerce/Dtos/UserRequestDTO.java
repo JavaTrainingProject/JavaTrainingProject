@@ -9,11 +9,7 @@ import jakarta.validation.constraints.Size;
 
 
 public class UserRequestDTO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     @NotBlank(message = "Name is required")
-    @Size(min = 3, max = 50, message = "Name must be 3-50 characters")
     private String name;
     @Email(message = "Invalid email format")
     @NotBlank(message = "Email is required")
@@ -22,16 +18,9 @@ public class UserRequestDTO {
     @NotBlank(message="Password is required")
     @Size(min=6, message="Password must be atleast 6 characters")
     private String password;
-    @NotBlank(message = "Gender is required")
-    private String gender;
 
-    public String getGender() {
-        return gender;
-    }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+
 
 
     public String getEmail() {

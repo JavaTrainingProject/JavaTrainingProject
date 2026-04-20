@@ -7,8 +7,6 @@ import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDateTime;
 public class UserResponseDto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
