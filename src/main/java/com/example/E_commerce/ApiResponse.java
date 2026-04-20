@@ -2,14 +2,14 @@ package com.example.E_commerce;
 
 public class ApiResponse<T> {
     private String status;
-    private String message;
+    private boolean message;
     private T data;
 
     public ApiResponse() {
 
     }
 
-    public ApiResponse(String status, String message, T data) {
+    public ApiResponse(String status, boolean message, T data) {
         this.status = status;
         this.message = message;
         this.data = data;
@@ -23,11 +23,11 @@ public class ApiResponse<T> {
         this.status = status;
     }
 
-    public String getMessage() {
+    public boolean getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(boolean message) {
         this.message = message;
     }
 
