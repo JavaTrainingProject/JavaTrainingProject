@@ -2,6 +2,10 @@ package com.example.E_commerce.Dtos;
 
 public class SubCategoryResponseDto {
     private Long id;
+    private String name;
+    private String description;
+    private Long categoryId;
+    private String categoryName;
 
     public String getName() {
         return name;
@@ -43,8 +47,4 @@ public class SubCategoryResponseDto {
         this.categoryName = categoryName;
     }
 
-    private String name;
-    private String description;
-    private Long categoryId;
-    private String categoryName;
 }

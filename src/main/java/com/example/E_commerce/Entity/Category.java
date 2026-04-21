@@ -16,35 +16,19 @@ public class Category {
     private String CategoryDescription;
     private LocalDateTime createdAt;
 
-    public String getCategoryName() {
-        return CategoryName;
-    }
+    public String getCategoryName() {return CategoryName;}
 
-    public void setCategoryName(String categoryName) {
-        CategoryName = categoryName;
-    }
+    public void setCategoryName(String categoryName) {CategoryName = categoryName;}
 
-    public long getId() {
-        return id;
-    }
+    public long getId() {return id;}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public void setId(long id) {this.id = id;}
 
-    public String getCategoryDescription() {
-        return CategoryDescription;
-    }
+    public String getCategoryDescription() {return CategoryDescription;}
 
-    public void setCategoryDescription(String categoryDescription) {
-        CategoryDescription = categoryDescription;
-    }
+    public void setCategoryDescription(String categoryDescription) {CategoryDescription = categoryDescription;}
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
+    public LocalDateTime getCreatedAt() {return createdAt;}
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+    public void setCreatedAt(LocalDateTime createdAt) {this.createdAt = createdAt;}
 }

@@ -9,10 +9,9 @@ import java.util.List;
 
 public interface ProductService {
 
-    String createProduct(ProductRequestDto dto, List<MultipartFile> images);
+        ProductResponseDto createProduct(ProductRequestDto dto, List<MultipartFile> images);
 
-    List<ProductResponseDto> getAllProducts();
+        Page<ProductResponseDto> getAllProducts(int page, int size);
 
-    Page<ProductResponseDto> getAllProducts(int page, int size);
-    String updateProduct(Long id, ProductRequestDto dto, List<MultipartFile> images);
-}
+        ProductResponseDto updateProduct(Long id, ProductRequestDto dto, List<MultipartFile> images, List<String> removeImages);
+    }
