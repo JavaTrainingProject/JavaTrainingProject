@@ -11,18 +11,22 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(unique = true)
     private String email;
     private String gender;
     private String password;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
     private Role role;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getGender() {
