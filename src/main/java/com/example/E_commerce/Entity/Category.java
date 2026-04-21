@@ -1,43 +1,59 @@
 package com.example.E_commerce.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
+@Table(name = "category")
 public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String CategoryName;
-    private String CategoryDescription;
+    private Long id;
+
+    @Column(name = "category_name")
+    private String name;
+
+    @Column(name = "category_description")
+    private String description;
+
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    public String getCategoryName() {
-        return CategoryName;
-    }
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
-    public void setCategoryName(String categoryName) {
-        CategoryName = categoryName;
-    }
+    @JsonIgnore
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SubCategory> subCategories;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getCategoryDescription() {
-        return CategoryDescription;
+    public String getName() {
+        return name;
     }
 
-    public void setCategoryDescription(String categoryDescription) {
-        CategoryDescription = categoryDescription;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -48,5 +64,27 @@ public class Category {
         this.createdAt = createdAt;
     }
 
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
 
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<SubCategory> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(List<SubCategory> subCategories) {
+        this.subCategories = subCategories;
+    }
 }

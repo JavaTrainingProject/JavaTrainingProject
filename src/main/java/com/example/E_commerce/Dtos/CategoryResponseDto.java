@@ -3,15 +3,13 @@ package com.example.E_commerce.Dtos;
 import java.time.LocalDateTime;
 
 public class CategoryResponseDto {
+
     private Long id;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String name;
+    private String description;
+    private String status;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     public Long getId() {
         return id;
@@ -19,6 +17,14 @@ public class CategoryResponseDto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -29,6 +35,14 @@ public class CategoryResponseDto {
         this.description = description;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -37,8 +51,11 @@ public class CategoryResponseDto {
         this.createdAt = createdAt;
     }
 
-    private String name;
-    private String description;
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
 
-    private LocalDateTime createdAt;
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }
