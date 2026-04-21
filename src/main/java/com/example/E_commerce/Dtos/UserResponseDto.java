@@ -7,31 +7,11 @@ import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDateTime;
 public class UserResponseDto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
     private Long id;
     private String name;
     private String email;
-    @Enumerated(EnumType.STRING)
-    private Role role;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
     public Role getRole() {
         return role;
@@ -41,6 +21,13 @@ public class UserResponseDto {
         this.role = role;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -48,30 +35,6 @@ public class UserResponseDto {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getEmail() {
@@ -82,12 +45,26 @@ public class UserResponseDto {
         this.email = email;
     }
 
-    public Role getRole() {
-        return role;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
 
 }
