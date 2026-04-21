@@ -13,7 +13,6 @@ public interface SubCategoryService {
 
     ApiResponse<List<SubCategoryResponseDto>> getAllActiveSubCategories (int page, int size);
 
-
-
+    SubCategoryResponseDto updateSubCategory(Long id, SubCategoryRequestDto dto);
 
 }

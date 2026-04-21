@@ -1,8 +1,10 @@
 package com.example.E_commerce.controller;
 
 import com.example.E_commerce.ApiResponse;
+import com.example.E_commerce.dtos.SubCategoryRequestDto;
 import com.example.E_commerce.dtos.SubCategoryResponseDto;
 import com.example.E_commerce.service.SubCategoryService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +34,17 @@ public class SubCategoryController {
             @RequestParam(defaultValue = "10") int size) {
 
         return ResponseEntity.ok(subCategoryService.getAllActiveSubCategories(page, size));
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse<SubCategoryResponseDto>> updateSubCategory(
+            @PathVariable Long id,
+            @Valid @RequestBody SubCategoryRequestDto dto) {
+
+        SubCategoryResponseDto response = subCategoryService.updateSubCategory(id, dto);
+
+        return ResponseEntity.ok(
+                new ApiResponse<>("SubCategory updated successfully", true, response)
+        );
     }
 
 }
