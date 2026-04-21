@@ -1,5 +1,6 @@
 package com.example.E_commerce.Controller;
 
+
 import com.example.E_commerce.Dtos.CategoryRequestDto;
 import com.example.E_commerce.Dtos.CategoryResponseDto;
 import com.example.E_commerce.Service.CategoryService;
@@ -10,16 +11,15 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("api/admin/categories")
+@RequestMapping("/categories")
 public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<CategoryResponseDto> createCategory(@RequestBody CategoryRequestDto dto) {
         CategoryResponseDto response = categoryService.createCategory(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-
 }

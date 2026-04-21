@@ -30,10 +30,15 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = new Category();
         category.setCategoryName(dto.getName());
         category.setCategoryDescription(dto.getDescription());
+        category.setUpdatedAt(LocalDateTime.now());
+        category.setStatus("ACTIVE");
+        category.setActive(true);
         category.setCreatedAt(LocalDateTime.now());
 
         return mapToDto(categoryRepository.save(category));
     }
+
+
 
     private CategoryResponseDto mapToDto(Category category) {
         CategoryResponseDto dto = new CategoryResponseDto();
