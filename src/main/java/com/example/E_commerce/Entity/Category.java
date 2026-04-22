@@ -32,6 +32,17 @@ public class Category {
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SubCategory> subCategories;
 
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    private List<Product> products;
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
     public Long getId() {
         return id;
     }

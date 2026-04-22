@@ -1,7 +1,17 @@
 package com.example.E_commerce.Dtos;
 
+import com.example.E_commerce.Enum.Status;
+
+import java.time.LocalDateTime;
+
 public class SubCategoryResponseDto {
     private Long id;
+    private String name;
+    private String description;
+    private Status status;
+    private Long categoryId;
+    private LocalDateTime createdAt;
+
 
     public String getName() {
         return name;
@@ -35,16 +45,19 @@ public class SubCategoryResponseDto {
         this.categoryId = categoryId;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
-    private String name;
-    private String description;
-    private Long categoryId;
-    private String categoryName;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }

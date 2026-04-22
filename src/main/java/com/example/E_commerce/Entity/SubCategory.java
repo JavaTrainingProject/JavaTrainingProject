@@ -1,31 +1,47 @@
 package com.example.E_commerce.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.E_commerce.Enum.Status;
+import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
+
 @Entity
+@Table(name = "sub_category")
 public class SubCategory {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String SubCategoryName;
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
+
     private String description;
 
-    public String getSubCategoryName() {
-        return SubCategoryName;
-    }
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
-    public void setSubCategoryName(String subCategoryName) {
-        SubCategoryName = subCategoryName;
-    }
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public long getId() {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false) // ✅ FK FIX
+    private Category category;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -36,4 +52,35 @@ public class SubCategory {
         this.description = description;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }

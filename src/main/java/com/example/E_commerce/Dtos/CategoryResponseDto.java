@@ -1,6 +1,7 @@
 package com.example.E_commerce.Dtos;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class CategoryResponseDto {
 
@@ -11,51 +12,61 @@ public class CategoryResponseDto {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    private List<ProductResponseDto> products;
+
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
+    public List<ProductResponseDto> getProducts() {
+        return products;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public void setProducts(List<ProductResponseDto> products) {
+        this.products = products;
     }
 }

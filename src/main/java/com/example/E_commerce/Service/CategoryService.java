@@ -10,4 +10,6 @@ public interface CategoryService {
     CategoryResponseDto getCategoryById(Long id);
 
     List<CategoryResponseDto> getActiveCategories();
+
+    List<CategoryResponseDto> getActiveCategoriesWithProducts();
 }
